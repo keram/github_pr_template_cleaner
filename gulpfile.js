@@ -12,9 +12,9 @@ let packageConfig = require('./package.json');
  */
 function interpolateConfigKeys(str, cfg) {
     return Object.keys(cfg).filter((key) => {
-        return ['string', 'number'].includes(typeof cfg[key]);
+	return ['string', 'number'].includes(typeof cfg[key]);
     }).reduce((sum, key) => {
-        return sum.replace(new RegExp('%' + key + '%', 'g'), cfg[key]);
+	return sum.replace(new RegExp('%' + key + '%', 'g'), cfg[key]);
     }, str);
 }
 
@@ -25,8 +25,8 @@ function interpolateConfigKeys(str, cfg) {
  */
 function userScriptHeader(cfg) {
     return interpolateConfigKeys(
-        fs.readFileSync('header.txt', 'utf8'),
-        cfg
+	fs.readFileSync('header.txt', 'utf8'),
+	cfg
     );
 }
 
@@ -41,25 +41,25 @@ function outputWrapper(cfg) {
 
 gulp.task('webserver', function() {
     gulp.src('./')
-        .pipe(webserver({
-            livereload: true,
-            directoryListing: true,
-            open: 'http://localhost:8000/sample/index.html'
-        }));
+	.pipe(webserver({
+	    livereload: true,
+	    directoryListing: true,
+	    open: 'http://localhost:8000/sample/index.html'
+	}));
 });
 
 gulp.task('js-compile', function() {
     return gulp.src('src/js/index.js', { base: './' })
-        .pipe(closureCompiler({
-            compilation_level: 'ADVANCED_OPTIMIZATIONS',
-            warning_level: 'VERBOSE',
-            language_in: 'ECMASCRIPT6_STRICT',
-            language_out: 'ECMASCRIPT5_STRICT',
-            output_wrapper: outputWrapper(packageConfig),
-            js_output_file: 'github_pr_template_cleaner.user.js',
-            define: [
-                'CODE_DEBUG=false'
-            ]
-        }))
-        .pipe(gulp.dest('./dist/js'));
+	.pipe(closureCompiler({
+	    compilation_level: 'ADVANCED_OPTIMIZATIONS',
+	    warning_level: 'VERBOSE',
+	    language_in: 'ECMASCRIPT6_STRICT',
+	    language_out: 'ECMASCRIPT5_STRICT',
+	    output_wrapper: outputWrapper(packageConfig),
+	    js_output_file: packageConfig.js_output_file,
+	    define: [
+		'CODE_DEBUG=false'
+	    ]
+	}))
+	.pipe(gulp.dest('./dist/js'));
 });

@@ -38,6 +38,7 @@
     "google-closure-compiler": "^20170806.0.0",
     "gulp-webserver": "^0.9.1"
   },
+  "js_output_file": "github_pr_template_cleaner.user.js",
   "eslintConfig": {
     "extends": [
       "eslint:recommended",
