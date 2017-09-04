@@ -1,0 +1,21 @@
+// ==UserScript==
+// @name        %name%
+// @description %description%
+// @version     %version%
+// @encoding    %encoding%
+// @license     %license%
+// @copyright   %copyright%
+// @author      %author%
+// @homepage        %homepage%
+// @homepageURL     %homepage%
+// @twitterURL      %twitter%
+// @updateURL       %download_url%
+// @downloadURL     %download_url%
+// @contactURL      %contact_url%
+// @supportURL      %contact_url%
+// @contributionURL %homepage%#contribute
+// @include     %url_match%
+// @namespace   %namespace%
+// @run-at      %run_at%
+// @grant       %grant%
+// ==/UserScript==

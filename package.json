@@ -1,0 +1,64 @@
+{
+  "name": "Github_PR_Template_Cleaner",
+  "version": "1.0.0",
+  "description": "Remove noise and improve pull request description before submit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keram/github_pr_template_cleaner.git"
+  },
+  "keywords": [
+    "github",
+    "pull-request",
+    "template",
+    "javascript"
+  ],
+  "author": "Marek L <nospam.keram@gmail.com>",
+  "copyright": "2017+",
+  "license": "ISC",
+  "twitter": "https://twitter.com/marek_public",
+  "download_url": "https://raw.githubusercontent.com/keram/github_pr_template_cleaner/master/dist/github_pr_template_cleaner.user.js",
+  "contact_url": "https://github.com/keram/github_pr_template_cleaner/issues",
+  "encoding": "utf-8",
+  "namespace": "github",
+  "run_at": "document-idle",
+  "grant": "none",
+  "url_match": "https://github.com/*/*/compare*",
+  "bugs": {
+    "url": "https://github.com/keram/github_pr_template_cleaner/issues"
+  },
+  "homepage": "https://github.com/keram/github_pr_template_cleaner",
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "eslint-config-google": "^0.9.1",
+    "gulp": "^3.9.1",
+    "google-closure-compiler": "^20170806.0.0",
+    "gulp-webserver": "^0.9.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "quotes": [
+        2,
+        "single"
+      ],
+      "indent": [
+        "error",
+        4
+      ],
+      "comma-dangle": ["error", "never"],
+      "object-curly-spacing": ["error", "always"]
+    }
+  }
+}
