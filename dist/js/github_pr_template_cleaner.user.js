@@ -9,8 +9,8 @@
 // @homepage        https://github.com/keram/github_pr_template_cleaner
 // @homepageURL     https://github.com/keram/github_pr_template_cleaner
 // @twitterURL      https://twitter.com/marek_public
-// @updateURL       https://raw.githubusercontent.com/keram/github_pr_template_cleaner/master/dist/github_pr_template_cleaner.user.js
-// @downloadURL     https://raw.githubusercontent.com/keram/github_pr_template_cleaner/master/dist/github_pr_template_cleaner.user.js
+// @updateURL       https://github.com/keram/github_pr_template_cleaner/raw/master/dist/js/github_pr_template_cleaner.user.js
+// @downloadURL     https://github.com/keram/github_pr_template_cleaner/raw/master/dist/js/github_pr_template_cleaner.user.js
 // @contactURL      https://github.com/keram/github_pr_template_cleaner/issues
 // @supportURL      https://github.com/keram/github_pr_template_cleaner/issues
 // @contributionURL https://github.com/keram/github_pr_template_cleaner#contribute

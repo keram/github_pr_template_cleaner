@@ -20,7 +20,7 @@
   "copyright": "2017+",
   "license": "ISC",
   "twitter": "https://twitter.com/marek_public",
-  "download_url": "https://raw.githubusercontent.com/keram/github_pr_template_cleaner/master/dist/github_pr_template_cleaner.user.js",
+  "download_url": "https://github.com/keram/github_pr_template_cleaner/raw/master/dist/js/github_pr_template_cleaner.user.js",
   "contact_url": "https://github.com/keram/github_pr_template_cleaner/issues",
   "encoding": "utf-8",
   "namespace": "github",
@@ -50,12 +50,12 @@
     },
     "rules": {
       "quotes": [
-        2,
-        "single"
+	2,
+	"single"
       ],
       "indent": [
-        "error",
-        4
+	"error",
+	4
       ],
       "comma-dangle": ["error", "never"],
       "object-curly-spacing": ["error", "always"]
