@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 'use strict';
 
 /** @define {boolean} */
@@ -55,15 +57,38 @@ function initPRCLeaner(form, prBody, handlers) {
     return form;
 }
 
-function fetchHandlers(){
-    return fetch('handlers.jsx').then((response) => {
+/**
+ * @param  {string} url
+ * @return {Promise}
+ */
+function fetchHandlers(url) {
+    return fetch(url).then((response) => {
+        if (!response.ok) {
+            if (CODE_DEBUG) {
+                console.log('fetchHandlers', response);
+            }
+
+            throw new Error('Network response was not ok.');
+        }
+
         return response.text();
+    }).then((jsStr, status) => {
+        return eval(jsStr);
+    }).catch(function(error) {
+        if (CODE_DEBUG) {
+            console.error('fetchHandlers', error);
+        }
+
+        return Promise.resolve([removeComments]);
     });
 }
 
+/**
+ * @param  {Array<Function>} handlers
+ */
 function bindOnLoad(handlers) {
     window.addEventListener('load', () => {
-       initPRCLeaner(
+        initPRCLeaner(
             document.getElementById(NEW_PR_FORM_ID),
             document.getElementById(PR_BODY_TEXTAREA_ID),
             handlers
@@ -71,6 +96,4 @@ function bindOnLoad(handlers) {
     });
 }
 
-fetchHandlers().then((jsStr) => {
-    bindOnLoad(eval(jsStr));
-});
+fetchHandlers('handlers.js').then(bindOnLoad);
