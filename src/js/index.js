@@ -34,9 +34,10 @@ function pocessThroughHandlers(val, handlers) {
  * Initialise cleaner
  * @param  {Element} form
  * @param  {Element} prBody
+ * @param  {Array<Function>} handlers
  * @return {Element}
  */
-function initPRCLeaner(form, prBody) {
+function initPRCLeaner(form, prBody, handlers) {
     if (form) {
         form.addEventListener('submit', (ev) => {
             if (CODE_DEBUG) {
@@ -46,7 +47,7 @@ function initPRCLeaner(form, prBody) {
 
             prBody.value = pocessThroughHandlers(
                 prBody.value,
-                [removeComments]
+                handlers
             );
         });
     }
@@ -54,9 +55,22 @@ function initPRCLeaner(form, prBody) {
     return form;
 }
 
-window.addEventListener('load', () => {
-    initPRCLeaner(
-        document.getElementById(NEW_PR_FORM_ID),
-        document.getElementById(PR_BODY_TEXTAREA_ID)
-    );
+function fetchHandlers(){
+    return fetch('handlers.jsx').then((response) => {
+        return response.text();
+    });
+}
+
+function bindOnLoad(handlers) {
+    window.addEventListener('load', () => {
+       initPRCLeaner(
+            document.getElementById(NEW_PR_FORM_ID),
+            document.getElementById(PR_BODY_TEXTAREA_ID),
+            handlers
+        );
+    });
+}
+
+fetchHandlers().then((jsStr) => {
+    bindOnLoad(eval(jsStr));
 });
