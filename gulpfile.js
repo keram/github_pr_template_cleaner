@@ -59,6 +59,7 @@ gulp.task('js-compile', function() {
             language_out: 'ECMASCRIPT5_STRICT',
             output_wrapper: outputWrapper(packageConfig),
             js_output_file: packageConfig.js_output_file,
+            use_types_for_optimization: true,
             define: [
                 'CODE_DEBUG=false'
             ]
