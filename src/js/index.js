@@ -72,7 +72,7 @@ function fetchHandlers(url) {
         }
 
         return response.text();
-    }).then((jsStr, status) => {
+    }).then((jsStr) => {
         return eval(jsStr);
     }).catch(function(error) {
         if (CODE_DEBUG) {
