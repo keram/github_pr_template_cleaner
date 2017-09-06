@@ -96,4 +96,6 @@ function bindOnLoad(handlers) {
     });
 }
 
+window['removeComments'] = removeComments;
+
 fetchHandlers('handlers.js').then(bindOnLoad);

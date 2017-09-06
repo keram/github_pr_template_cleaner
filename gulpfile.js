@@ -51,7 +51,7 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('js-compile', function() {
-    return gulp.src('src/js/index.js', { base: './' })
+    return gulp.src(['src/js/index.js', 'src/js/init.js'], { base: './' })
         .pipe(closureCompiler({
             compilation_level: 'ADVANCED_OPTIMIZATIONS',
             warning_level: 'VERBOSE',
