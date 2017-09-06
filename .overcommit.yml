@@ -41,3 +41,5 @@ PreCommit:
     install_command: 'npm install eslint'
     include: '**/*.js'
     enabled: true
+    exclude:
+      - 'dist/js/*.js'
