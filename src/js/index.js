@@ -5,6 +5,12 @@
 /** @define {boolean} */
 const CODE_DEBUG = true;
 
+/** @define {boolean} */
+const BROWSER_ENV = false;
+
+/** @define {boolean} */
+const NODE_ENV = true;
+
 /** @define {string} */
 const NEW_PR_FORM_ID = 'new_pull_request';
 
@@ -94,4 +100,12 @@ function bindOnLoad(handlers) {
             handlers
         );
     });
+}
+
+if (NODE_ENV) {
+    module.exports.removeComments = removeComments;
+}
+
+if (BROWSER_ENV) {
+    window['removeComments'] = removeComments;
 }

@@ -60,8 +60,11 @@ gulp.task('js-compile', function() {
             output_wrapper: outputWrapper(packageConfig),
             js_output_file: packageConfig.js_output_file,
             use_types_for_optimization: true,
+            externs: ['externs/node.js'],
             define: [
-                'CODE_DEBUG=false'
+                'CODE_DEBUG=false',
+                'BROWSER_ENV=true',
+                'NODE_ENV=false'
             ]
         }))
         .pipe(gulp.dest('./dist/js'));
