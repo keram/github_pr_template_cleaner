@@ -28,7 +28,7 @@ function removeComments(string) {
  */
 function pocessThroughHandlers(val, handlers) {
     return handlers.reduce((sum, fnc) => {
-	return fnc(sum);
+        return fnc(sum);
     }, val);
 }
 
@@ -41,17 +41,17 @@ function pocessThroughHandlers(val, handlers) {
  */
 function initPRCLeaner(form, prBody, handlers) {
     if (form) {
-	form.addEventListener('submit', (ev) => {
-	    if (CODE_DEBUG) {
-		ev.preventDefault();
-		ev.stopPropagation();
-	    }
+        form.addEventListener('submit', (ev) => {
+            if (CODE_DEBUG) {
+                ev.preventDefault();
+                ev.stopPropagation();
+            }
 
-	    prBody.value = pocessThroughHandlers(
-		prBody.value,
-		handlers
-	    );
-	});
+            prBody.value = pocessThroughHandlers(
+                prBody.value,
+                handlers
+            );
+        });
     }
 
     return form;
@@ -63,23 +63,23 @@ function initPRCLeaner(form, prBody, handlers) {
  */
 function fetchHandlers(url) {
     return fetch(url).then((response) => {
-	if (!response.ok) {
-	    if (CODE_DEBUG) {
-		console.log('fetchHandlers', response);
-	    }
+        if (!response.ok) {
+            if (CODE_DEBUG) {
+                console.log('fetchHandlers', response);
+            }
 
-	    throw new Error('Network response was not ok.');
-	}
+            throw new Error('Network response was not ok.');
+        }
 
-	return response.text();
+        return response.text();
     }).then((jsStr) => {
-	return eval(jsStr);
+        return eval(jsStr);
     }).catch(function(error) {
-	if (CODE_DEBUG) {
-	    console.error('fetchHandlers', error);
-	}
+        if (CODE_DEBUG) {
+            console.error('fetchHandlers', error);
+        }
 
-	return Promise.resolve([removeComments]);
+        return Promise.resolve([removeComments]);
     });
 }
 
@@ -88,12 +88,10 @@ function fetchHandlers(url) {
  */
 function bindOnLoad(handlers) {
     window.addEventListener('load', () => {
-	initPRCLeaner(
-	    document.getElementById(NEW_PR_FORM_ID),
-	    document.getElementById(PR_BODY_TEXTAREA_ID),
-	    handlers
-	);
+        initPRCLeaner(
+            document.getElementById(NEW_PR_FORM_ID),
+            document.getElementById(PR_BODY_TEXTAREA_ID),
+            handlers
+        );
     });
 }
-
-window['removeComments'] = removeComments;
