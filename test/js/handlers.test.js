@@ -1,3 +1,5 @@
+const ENV_MODE = 'node';
+
 import test from 'ava';
 import { removeComments } from '../../src/js/handlers';
 
