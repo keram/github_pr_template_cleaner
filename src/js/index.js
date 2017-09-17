@@ -1,3 +1,5 @@
+/* global removeComments */
+
 'use strict';
 
 /** @define {boolean} */
@@ -9,14 +11,6 @@ const NEW_PR_FORM_ID = 'new_pull_request';
 /** @define {string} */
 const PR_BODY_TEXTAREA_ID = 'pull_request_body';
 
-/**
- * Remove html comments from string
- * @param  {string} string
- * @return {string}
- */
-function removeComments(string) {
-    return string.replace(/\n<!---.+-->/g, '');
-}
 
 /**
  * Return val processed through handlers
