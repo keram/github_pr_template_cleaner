@@ -4,7 +4,7 @@
   "description": "Remove noise and improve pull request description before submit",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -32,10 +32,11 @@
   },
   "homepage": "https://github.com/keram/github_pr_template_cleaner",
   "devDependencies": {
-    "eslint": "^4.6.0",
+    "ava": "^0.22.0",
+    "eslint": "^4.7.0",
     "eslint-config-google": "^0.9.1",
-    "gulp": "^3.9.1",
     "google-closure-compiler": "^20170806.0.0",
+    "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1"
   },
   "js_output_file": "github_pr_template_cleaner.user.js",
@@ -50,14 +51,8 @@
       "es6": true
     },
     "rules": {
-      "quotes": [
-	2,
-	"single"
-      ],
-      "indent": [
-	"error",
-	4
-      ],
+      "quotes": [2, "single"],
+      "indent": ["error", 4],
       "comma-dangle": ["error", "never"],
       "object-curly-spacing": ["error", "always"]
     }
